@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { QuizSession } from '@/types';
 import { CertificateDisplay } from '@/components/CertificateDisplay';
+import { LINKEDIN_TEXT } from '@/data/profiles';
 import html2canvas from 'html2canvas';
 
 export default function CertificatePage() {
@@ -87,12 +88,16 @@ export default function CertificatePage() {
       const dataUrl = await generateCertificateImage();
       if (dataUrl) downloadImage(dataUrl, `AI-Certificate-${session.name || 'certificate'}.png`);
 
-      // Open LinkedIn with pre-filled text
-      const text = `I just completed an AI Sense Check — a quick reflection on how I interpret AI decisions in real work situations.
+      // Open LinkedIn with pre-filled text (profile-specific copy)
+      const profileText = session.aiProfile ? LINKEDIN_TEXT[session.aiProfile] : null;
+      const opener = profileText?.opener ?? "I just completed an AI Sense Check — a quick reflection on how I interpret AI decisions in real work situations.";
+      const reminder = profileText?.reminder ?? "It's a good reminder that AI success depends on people and context, not just features.";
+
+      const text = `${opener}
 
 My result: ${session.aiProfile}
 
-It's a good reminder that AI success depends on people and context, not just features.
+${reminder}
 
 Curious about yours? Try it here: ${process.env.NEXT_PUBLIC_SITE_URL || 'https://areyou-ai-ready.vercel.app'}
 
