@@ -94,7 +94,7 @@ My result: ${session.aiProfile}
 
 It's a good reminder that AI success depends on people and context, not just features.
 
-Curious about yours? Try it here: ${process.env.NEXT_PUBLIC_SITE_URL || 'https://areyouaiready.com'}
+Curious about yours? Try it here: ${process.env.NEXT_PUBLIC_SITE_URL || 'https://areyou-ai-ready.vercel.app'}
 
 Drop your profile below.`;
 
