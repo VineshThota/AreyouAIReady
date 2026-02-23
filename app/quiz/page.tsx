@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Question, UserAnswer, QuizSession } from '@/types';
 import { getRevealForDomain } from '@/data/reveals';
@@ -19,7 +19,6 @@ export default function QuizPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [answers, setAnswers] = useState<UserAnswer[]>([]);
   const [questionKey, setQuestionKey] = useState(0); // drives re-mount animation
-  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const stored = localStorage.getItem('quizSession');
