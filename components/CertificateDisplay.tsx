@@ -137,7 +137,7 @@ export const CertificateDisplay = forwardRef<HTMLDivElement, CertificateDisplayP
             alignItems: 'center',
           }}>
             <p style={{ fontSize: '9px', color: '#9ab0c0', margin: 0, letterSpacing: '0.3px' }}>
-              Contact Vinesh Thota for further information
+              © Vinesh Thota
             </p>
             <p style={{ fontSize: '9px', color: '#9ab0c0', margin: 0, letterSpacing: '0.3px' }}>
               Certificate ID: {certificateId}

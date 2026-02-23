@@ -49,6 +49,7 @@ export async function POST(request: NextRequest) {
       geography: [session.geography?.city, session.geography?.country]
         .filter(Boolean)
         .join(', '),
+      startedAt: session.createdAt || '',
       questionsAndOptions: buildQuestionsAndOptions(session.questions),
       answersAndReveals: buildAnswersWithReveals(session.questions, session.answers),
     };
