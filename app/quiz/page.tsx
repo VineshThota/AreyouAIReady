@@ -54,6 +54,7 @@ export default function QuizPage() {
         aiProfile: profile,
         certificateId: `ASC-${nanoid(8).toUpperCase()}`,
         geography,
+        completedAt: new Date().toISOString(),
       };
       localStorage.setItem('quizSession', JSON.stringify(completedSession));
       router.push('/certificate');

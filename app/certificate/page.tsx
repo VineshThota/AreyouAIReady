@@ -102,6 +102,13 @@ Drop your profile below.`;
         `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(text)}`,
         '_blank'
       );
+
+      // Record LinkedIn click in session and update Sheets
+      const updatedSession = { ...session, linkedInClicked: true };
+      setSession(updatedSession);
+      localStorage.setItem('quizSession', JSON.stringify(updatedSession));
+      saveSession(updatedSession).catch(console.error);
+
       setShowLinkedInBanner(true);
     } catch (e) { console.error(e); }
     finally { setIsSharing(false); }

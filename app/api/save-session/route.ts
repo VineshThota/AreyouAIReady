@@ -50,6 +50,8 @@ export async function POST(request: NextRequest) {
         .filter(Boolean)
         .join(', '),
       startedAt: session.createdAt || '',
+      completedAt: session.completedAt || '',
+      linkedInClicked: session.linkedInClicked ? 'Yes' : 'No',
       questionsAndOptions: buildQuestionsAndOptions(session.questions),
       answersAndReveals: buildAnswersWithReveals(session.questions, session.answers),
     };

@@ -48,6 +48,8 @@ export interface QuizSession {
     country?: string;
   };
   createdAt: string;
+  completedAt?: string;
+  linkedInClicked?: boolean;
 }
 
 // Profile descriptor
