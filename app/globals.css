@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --color-ai-text: #2c2c2c;
+  --color-ai-off-white: #f5f3f0;
+  --color-ai-border: #d4d0cc;
+}
+
+/*
+  NOTE: The old "* { margin:0; padding:0; box-sizing:border-box }" reset
+  has been removed. In Tailwind v4 all utilities live inside @layer utilities.
+  CSS Cascade Layers rules: unlayered styles always beat layered ones, so that
+  single "*" rule was silently zeroing out every mb-* / space-y-* / p-* class
+  across the entire app. Tailwind's own Preflight (included via @import "tailwindcss")
+  already handles the box-model reset correctly inside its layer.
+*/
+
+html,
+body {
+  font-family: var(--font-sans);
+  background-color: white;
+  color: #2c2c2c;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Reveal panel: slides in from the right ── */
+@keyframes revealSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-reveal {
+  animation: revealSlideIn 0.18s ease-out forwards;
+}
+
+/* ── New question: fades up ── */
+@keyframes questionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-question {
+  animation: questionFadeIn 0.15s ease-out forwards;
+}
